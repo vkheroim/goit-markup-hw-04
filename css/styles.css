@@ -40,6 +40,10 @@ img {
   display: block;
 }
 
+.icon {
+  fill: none;
+}
+
 .section-title {
   font-size: 36px;
   font-weight: 700;
@@ -222,6 +226,10 @@ img {
   display: flex;
   gap: 24px;
   justify-content: center;
+}
+
+.tactic-list-icon {
+  stroke: #2e2f42;
 }
 
 .tactic-list-item {
