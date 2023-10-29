@@ -41,7 +41,7 @@ img {
 }
 
 .icon {
-  fill: none;
+  fill: #f4f4fd;
 }
 
 .section-title {
@@ -84,6 +84,8 @@ img {
   justify-content: space-between;
   align-items: center;
   padding: 0 15px;
+  box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 
 .navigation {
@@ -123,6 +125,8 @@ img {
   flex-direction: column;
   font-weight: 500;
   padding: 24px 0;
+  position: relative;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navigation-list-link:hover,
@@ -132,12 +136,14 @@ img {
 
 .navigation-list-link:hover::after,
 .navigation-list-link:focus::after {
-  margin-top: 20px;
   content: "";
-  width: auto;
+  width: 100%;
   height: 4px;
   border-radius: 2px;
-  background: var(--OCEAN, #404bbf);
+  background-color: #404bbf;
+  position: absolute;
+  left: 0;
+  bottom: -1px;
 }
 
 /* COMMUNICATION */
@@ -149,6 +155,10 @@ img {
 .communication-list {
   display: flex;
   gap: 40px;
+}
+
+.communication-list li {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .communication-list li:hover,
@@ -171,6 +181,10 @@ img {
   background-size: cover;
   padding: 188px 0;
   text-align: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 /* CONTENT */
@@ -208,6 +222,7 @@ img {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
   border-style: none;
   min-width: 169px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-button:hover,
@@ -241,22 +256,15 @@ img {
 
 /* CONTENT */
 
-.tactic-icon-list {
+.tactic-icon-container {
   display: flex;
   margin-bottom: 8px;
-}
-
-.tactic-icon-list-item {
-  width: calc((100% - 72px) / 4);
-  text-align: center;
-  padding: 24px 100px;
+  align-items: center;
+  justify-content: center;
+  height: 112px;
+  background-color: #f4f4fd;
   border-radius: 4px;
   border: 1px solid var(--LIGHT-SLATE, #8e8f99);
-  background: var(--CLOUD, #f4f4fd);
-}
-
-.tactic-icon-list-item:not(:last-child) {
-  margin-right: 24px;
 }
 
 .tactic-list {
@@ -321,6 +329,7 @@ img {
 .team-social-list {
   display: flex;
   gap: 24px;
+  justify-content: center;
 }
 
 .team-social-link {
@@ -332,6 +341,12 @@ img {
   background-color: #4d5ae5;
   align-items: center;
   justify-content: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-social-link:hover,
+.team-social-link:focus {
+  background-color: #404bbf;
 }
 
 /* ------------------------------------------- */
@@ -355,6 +370,12 @@ img {
 .portfolio-list-item {
   border: 1px solid var(--CORNFLOWER, #e7e9fc);
   width: calc((100% - 48px) / 3);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-list-item:hover {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
 .portfolio-list-item img {
@@ -375,6 +396,12 @@ img {
 
 .portfolio-list-item-overlay {
   color: #f4f4fd;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 40px 32px;
+  letter-spacing: 0.02em;
+  height: 100%;
+  width: 100%;
   background-color: #4d5ae5;
   position: absolute;
   top: 0;
@@ -382,16 +409,11 @@ img {
   width: 100%;
   overflow: auto;
   transform: translateY(100%);
-  transition: transform 250ms linear;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-list-item:hover .portfolio-list-item-overlay {
   transform: translateY(0%);
-}
-
-.portfolio-list-item-overlay p {
-  width: 296px;
-  margin: 40px 32px 164px;
 }
 
 /* ------------------------------------------- */
@@ -420,6 +442,7 @@ img {
 
 .footer-content {
   display: flex;
+  align-items: baseline;
 }
 
 .footer-logo-text {
@@ -428,8 +451,6 @@ img {
 
 .footer-socials {
   display: flex;
-  flex-direction: column;
-  gap: 16px;
 }
 
 .footer-socials-list {
@@ -437,18 +458,32 @@ img {
   gap: 16px;
 }
 
+.footer-socials-text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.footre-socials-list-item {
+  width: 40px;
+  height: 40px;
+}
+
 .footer-list-social-link {
   display: flex;
   line-height: 0;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
   background-color: #4d5ae5;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .footer-list-social-link:hover,
 .footer-list-social-link:focus {
-  background-color: #404bbf;
+  background-color: #31d0aa;
 }
